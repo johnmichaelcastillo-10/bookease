@@ -35,3 +35,4 @@ blob-report
 .vercel
 .env
 
+.env.local
