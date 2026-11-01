@@ -1,0 +1,32 @@
+name: bookease
+
+services:
+  # Development server with hot reload: http://localhost:5173
+  app:
+    build:
+      context: .
+      target: dev
+    image: bookease-dev
+    ports:
+      - "5173:5173"
+    volumes:
+      - .:/app
+      # Keep the container's Linux node_modules separate from the host's.
+      - node_modules:/app/node_modules
+    environment:
+      # Bind mounts on Windows/macOS don't forward file events; poll instead.
+      CHOKIDAR_USEPOLLING: "true"
+
+  # Production build served by `vite preview`: http://localhost:4173
+  # Start with: docker compose --profile prod up --build preview
+  preview:
+    build:
+      context: .
+      target: preview
+    image: bookease-preview
+    profiles: ["prod"]
+    ports:
+      - "4173:4173"
+
+volumes:
+  node_modules:

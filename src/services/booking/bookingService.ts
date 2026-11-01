@@ -8,7 +8,7 @@ import { servicesRepository } from '@/database/repositories/catalogRepository'
 import { customersRepository } from '@/database/repositories/customersRepository'
 import { getBusinessSettings } from '@/database/repositories/settingsRepository'
 import { staffRepository } from '@/database/repositories/staffRepository'
-import { normalizeEmail } from '@/lib/contact'
+import { formatPhone, normalizeEmail } from '@/lib/contact'
 import { normalizeReference } from '@/lib/ids'
 import { toMinutes, wallClockDiffMinutes } from '@/lib/time'
 import { appointmentTables, applyStatusChange, insertAppointment } from '@/services/appointments/appointmentService'
@@ -137,7 +137,7 @@ export function canCustomerCancel(
   settings: Pick<BusinessSettings, 'allowCustomerCancellation' | 'cancellationNoticeHours' | 'timezone' | 'phone' | 'email'>,
   now = businessNow(settings.timezone),
 ): CancellationCheck {
-  const contact = settings.phone || settings.email ? ` Contact the business${settings.phone ? ` at ${settings.phone}` : ''}${settings.email ? ` or ${settings.email}` : ''}.` : ''
+  const contact = settings.phone || settings.email ? ` Contact the business${settings.phone ? ` at ${formatPhone(settings.phone)}` : ''}${settings.email ? ` or ${settings.email}` : ''}.` : ''
   if (!isReschedulable(appt.status)) return { allowed: false, reason: `This booking is already ${appt.status === 'no-show' ? 'marked as a no-show' : appt.status}.` }
   if (!settings.allowCustomerCancellation) return { allowed: false, reason: `Online cancellation is turned off.${contact}` }
   const minutesUntil = wallClockDiffMinutes({ date: appt.date, minutes: toMinutes(appt.startTime) }, now)

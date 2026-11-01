@@ -26,13 +26,13 @@ export function PortalLayout() {
             <NavLink
               to="/book"
               end
-              className={({ isActive }) => cn('rounded-md px-2.5 py-1.5 font-medium text-muted-foreground hover:text-foreground', isActive && 'text-foreground')}
+              className={({ isActive }) => cn('whitespace-nowrap rounded-md px-2.5 py-1.5 font-medium text-muted-foreground hover:text-foreground', isActive && 'text-foreground')}
             >
               Book
             </NavLink>
             <NavLink
               to="/booking-lookup"
-              className={({ isActive }) => cn('rounded-md px-2.5 py-1.5 font-medium text-muted-foreground hover:text-foreground', isActive && 'text-foreground')}
+              className={({ isActive }) => cn('whitespace-nowrap rounded-md px-2.5 py-1.5 font-medium text-muted-foreground hover:text-foreground', isActive && 'text-foreground')}
             >
               My booking
             </NavLink>
