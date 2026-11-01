@@ -13,7 +13,7 @@ Status of BookEase against the plan in the original brief. Updated 2026-11-01.
 | 5. Administrative modules | Done | Dashboard, appointments, calendar, availability, services, staff, customers, reports, notifications, activity log, settings. |
 | 6. Customer booking portal | Done | Six steps, confirmation, lookup, cancellation. Persistence, conflict re-check and slot release covered by tests. |
 | 7. Testing and QA | Done | See results below. |
-| 8. Docker and Vercel | Done | Docker dev and preview verified locally; Vercel deployment — see "Deployment" below. |
+| 8. Docker and Vercel | Done | Docker dev and preview verified locally; live on Vercel at https://bookease-ruby.vercel.app (nested routes, CSP and security headers verified). |
 | 9. Final polish | Done | README with screenshots, ARCHITECTURE, FEATURES, DEPLOYMENT, CHANGELOG. |
 
 ## Definition of done

@@ -5,6 +5,9 @@ shops, studios), built as a single-page React app that runs **entirely in the br
 admin workspace runs the schedule; a customer portal takes bookings. Everything is stored
 locally in IndexedDB: no server, no account, no external services.
 
+**Live demo: https://bookease-ruby.vercel.app** (choose *Explore with sample data* on first visit;
+the data stays in your browser).
+
 ![BookEase dashboard](docs/screenshot-dashboard.webp)
 
 <p>
