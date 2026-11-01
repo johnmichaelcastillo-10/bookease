@@ -18,7 +18,7 @@ export default defineConfig({
     timezoneId: 'America/New_York',
   },
   projects: [
-    { name: 'desktop', use: { ...devices['Desktop Chrome'], channel: channel || undefined } },
+    { name: 'desktop', use: { ...devices['Desktop Chrome'], channel: channel || undefined }, testIgnore: /responsive\.spec\.ts/ },
     { name: 'mobile', use: { ...devices['Pixel 7'], channel: channel || undefined }, testMatch: /responsive\.spec\.ts/ },
   ],
   webServer: {
