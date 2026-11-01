@@ -13,7 +13,7 @@ import { getEligibleStaff } from '@/services/availability/engine'
 import { deleteService, setServiceActive } from '@/services/catalog/catalogService'
 import { errorMessage } from '@/services/errors'
 import type { Service, ServiceCategory, Staff } from '@/types/models'
-import { ActiveBadge } from './ActiveBadge'
+import { ActiveBadge } from '@/components/shared/ActiveBadge'
 
 export function ServiceDetailsSheet({
   service,

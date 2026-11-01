@@ -23,7 +23,7 @@ import { errorMessage } from '@/services/errors'
 import { getUpcomingAppointmentsForStaff, setStaffActive } from '@/services/staff/staffService'
 import { useAppointmentUi } from '@/store/appointmentUiStore'
 import type { Appointment, Staff } from '@/types/models'
-import { ActiveBadge } from '../components/ActiveBadge'
+import { ActiveBadge } from '@/components/shared/ActiveBadge'
 import { StaffFormDialog } from '../components/StaffFormDialog'
 import { StaffScheduleCard } from '../components/StaffScheduleCard'
 

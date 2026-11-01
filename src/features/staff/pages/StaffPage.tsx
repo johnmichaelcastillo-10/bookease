@@ -13,7 +13,7 @@ import { appointmentsRepository } from '@/database/repositories/appointmentsRepo
 import { staffRepository } from '@/database/repositories/staffRepository'
 import { useBusinessContext } from '@/hooks/useBusiness'
 import type { Staff } from '@/types/models'
-import { ActiveBadge } from '../components/ActiveBadge'
+import { ActiveBadge } from '@/components/shared/ActiveBadge'
 import { StaffFormDialog } from '../components/StaffFormDialog'
 
 type StatusFilter = 'all' | 'active' | 'inactive'

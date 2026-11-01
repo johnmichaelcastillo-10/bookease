@@ -120,7 +120,7 @@ Stores (Dexie schema strings; first entry is the primary key):
 | `appointments` | `id, &reference, customerId, serviceId, staffId, date, status, customerEmail, createdAt, source, [staffId+date], [date+status]` | Bookings with snapshots |
 | `businessHours` | `weekday` | Seven rows, one per weekday |
 | `staffSchedules` | `staffId` | Weekly hours per staff member |
-| `blockedDates` | `id, date, staffId, scope, kind` | Holidays, closures, special hours, leave |
+| `blockedDates` | `id, date, staffId, scope, kind, source` | Holidays, closures, special hours, leave |
 | `notifications` | `id, createdAt, read, &dedupeKey` | Local notification center |
 | `activityLogs` | `id, createdAt, entityType, entityId` | Audit trail |
 | `settings` | `key` | `business` (settings) and `app` (onboarding/demo state) |
@@ -182,8 +182,10 @@ deactivating a service, staff member or customer later never rewrites history. C
 service *on* an appointment (an explicit edit) takes a fresh snapshot.
 
 **Versioning and migrations.** `schema.ts` declares each Dexie version. Version 1 is the
-original layout; version 2 adds the `[staffId+date]` and `[date+status]` compound indexes
-and back-fills `customers.normalizedEmail` in an `upgrade()` callback. Dexie runs upgrades
+original layout; version 2 adds the `[staffId+date]` and `[date+status]` compound indexes and a
+`source` index on special dates, and back-fills `customers.normalizedEmail` in an `upgrade()`
+callback. Backup files carry the schema version, and older backups are upgraded the same way
+before validation. Dexie runs upgrades
 inside a versionchange transaction, so a failed upgrade leaves the old database untouched.
 Tests open a real v1 database (fake-indexeddb), then the app database, and assert the data
 was migrated.
@@ -361,10 +363,15 @@ Services emit both inside the same transaction as the change they describe.
 - **Themes**: light, dark, system. Tokens are CSS variables in `index.css`; `public/theme-init.js`
   applies the saved choice before first paint (no flash, CSP-friendly external script).
 - **Layout**: admin sidebar (collapsible to icons on desktop, a sheet on mobile), sticky
-  header with search-free breadcrumbs, notification bell and theme toggle. Tables become
-  stacked cards under 768 px; the calendar switches to day/agenda on phones.
+  header with a link to the booking page, the notification bell and the theme toggle. Tables
+  become stacked cards under 768 px; the calendar opens in day view on phones and its grids
+  scroll inside their own container.
+- **Charts**: Recharts, coloured with the same status tokens (completed green, scheduled blue,
+  cancelled/no-show grey), direct legends, and a table view for every chart.
 - **Components**: shadcn/ui primitives plus shared composites listed in §2, each with a
-  consistent `className` + typed props API.
+  consistent `className` + typed props API. Feature folders hold their own pages, components,
+  hooks and helpers; cross-feature dialogs (appointment details/create/edit/reschedule) are opened
+  through a small Zustand store (`useAppointmentUi`) and mounted once in the admin layout.
 
 ## 12. Testing strategy
 
