@@ -1,6 +1,6 @@
 /**
  * IndexedDB schema, one entry per Dexie version. Never edit a released version's stores:
- * add a new version with its own upgrade instead. See ARCHITECTURE.md §3.
+ * add a new version with its own upgrade instead. See docs/ARCHITECTURE.md §3.
  */
 
 export const DB_NAME = 'bookease'

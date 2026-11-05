@@ -1,5 +1,5 @@
 /**
- * Wall-clock date and time helpers. See ARCHITECTURE.md §4.
+ * Wall-clock date and time helpers. See docs/ARCHITECTURE.md §4.
  *
  * Date-only values (`YYYY-MM-DD`) are handled with UTC arithmetic, which has no DST, so adding
  * a day always moves exactly one calendar day. Times are minutes since midnight within a date.

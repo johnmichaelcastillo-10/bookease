@@ -92,8 +92,10 @@ bookease/
 │   ├── App.tsx  main.tsx
 ├── tests/
 │   ├── unit/  integration/  component/  e2e/
+├── docs/                        ARCHITECTURE, FEATURES, DEPLOYMENT, CHANGELOG, PROJECT_PROGRESS,
+│                                README screenshots
 ├── Dockerfile  docker-compose.yml  .dockerignore  vercel.json
-└── README.md  ARCHITECTURE.md  FEATURES.md  DEPLOYMENT.md  CHANGELOG.md  PROJECT_PROGRESS.md
+└── README.md
 ```
 
 ## 3. Data model and IndexedDB schema

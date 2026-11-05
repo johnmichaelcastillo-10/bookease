@@ -1,7 +1,7 @@
 /**
  * Appointment operations. Every write re-validates its input, recomputes availability and
  * conflicts inside one read-write transaction, and records an activity entry and a local
- * notification in that same transaction. See ARCHITECTURE.md §5–6.
+ * notification in that same transaction. See docs/ARCHITECTURE.md §5–6.
  */
 import { db } from '@/database/db'
 import { appointmentsRepository } from '@/database/repositories/appointmentsRepository'

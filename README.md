@@ -5,14 +5,17 @@ shops, studios), built as a single-page React app that runs **entirely in the br
 admin workspace runs the schedule; a customer portal takes bookings. Everything is stored
 locally in IndexedDB: no server, no account, no external services.
 
-**Live demo: https://bookease-ruby.vercel.app** (choose *Explore with sample data* on first visit;
-the data stays in your browser).
+**Live site:** https://bookease-ruby.vercel.app (choose *Explore with sample data* on first
+visit; the data stays in your browser).
 
-![BookEase dashboard](docs/screenshot-dashboard.webp)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/screenshot-dashboard-dark.webp">
+  <img alt="BookEase admin dashboard: appointment, completion, cancellation, customer and revenue figures for the last 30 days, a daily appointment chart split by outcome and the status mix" src="docs/screenshot-dashboard.webp">
+</picture>
 
 <p>
-  <img src="docs/screenshot-calendar.webp" alt="Week calendar with appointments by status" width="49%" />
-  <img src="docs/screenshot-booking.webp" alt="Customer booking portal, picking a date and time" width="49%" />
+  <img src="docs/screenshot-calendar.webp" width="49%" alt="Week calendar with each day's appointments by time, staff and service filters, and day, week, month and agenda views">
+  <img src="docs/screenshot-booking.webp" width="49%" alt="Customer booking portal on the date and time step: a month calendar, the open morning and afternoon times and a summary of the chosen service">
 </p>
 
 More: [appointments](docs/screenshot-appointments.webp) ·
@@ -40,7 +43,7 @@ More: [appointments](docs/screenshot-appointments.webp) ·
 - **Settings**: business details and logo, timezone, currency, booking rules, light/dark/system
   theme, JSON backup and restore, sample data load/clear, full reset.
 
-The complete list, with business rules, is in [FEATURES.md](FEATURES.md).
+The complete list, with business rules, is in [docs/FEATURES.md](docs/FEATURES.md).
 
 ## Tech stack
 
@@ -54,7 +57,7 @@ Pages read data through repository functions wrapped in `useLiveQuery` (so every
 when IndexedDB changes, even from another tab) and write only through service modules. Services
 re-validate input with the same Zod schemas the forms use, run the pure scheduling engine, and
 save the record, its activity entry and its notification in one IndexedDB transaction. Details,
-diagrams and the database schema are in [ARCHITECTURE.md](ARCHITECTURE.md).
+diagrams and the database schema are in [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
 
 ```
 src/
@@ -128,7 +131,7 @@ browser.
 
 Vercel, as a static Vite site: build `npm run build`, output `dist`, no environment variables.
 `vercel.json` adds the SPA fallback, long-term caching for hashed assets and a strict
-Content-Security-Policy. Step-by-step guide: [DEPLOYMENT.md](DEPLOYMENT.md).
+Content-Security-Policy. Step-by-step guide: [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md).
 
 ## Data and known limitations
 
@@ -145,8 +148,11 @@ BookEase is deliberately browser-only, and it says so in the app:
   backup and restore in Settings → Data.
 - One business timezone; a DST transition hour is treated like any other hour.
 
-## Documentation
+## Status
 
-[ARCHITECTURE.md](ARCHITECTURE.md) · [FEATURES.md](FEATURES.md) ·
-[DEPLOYMENT.md](DEPLOYMENT.md) · [CHANGELOG.md](CHANGELOG.md) ·
-[PROJECT_PROGRESS.md](PROJECT_PROGRESS.md)
+Live at **https://bookease-ruby.vercel.app** (a static build on Vercel). Shown on the portfolio
+at https://jmcastillo-portfolio.vercel.app/projects/bookease/. Plan and progress:
+[`docs/PROJECT_PROGRESS.md`](docs/PROJECT_PROGRESS.md); design:
+[`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md); all features:
+[`docs/FEATURES.md`](docs/FEATURES.md); hosting: [`docs/DEPLOYMENT.md`](docs/DEPLOYMENT.md);
+changes: [`docs/CHANGELOG.md`](docs/CHANGELOG.md).

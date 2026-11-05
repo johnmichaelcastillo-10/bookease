@@ -1,6 +1,6 @@
 /**
  * Scheduling engine: pure functions, no I/O. `now` is always passed in so results are
- * deterministic and testable. See ARCHITECTURE.md §5 for the rules.
+ * deterministic and testable. See docs/ARCHITECTURE.md §5 for the rules.
  */
 import {
   addDays,

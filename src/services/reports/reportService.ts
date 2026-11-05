@@ -1,6 +1,6 @@
 /**
  * Report calculations. Pure functions over records read from IndexedDB, so the dashboard,
- * reports page and tests all use the same numbers. Revenue definitions: ARCHITECTURE.md §8.
+ * reports page and tests all use the same numbers. Revenue definitions: docs/ARCHITECTURE.md §8.
  */
 import { format } from 'date-fns'
 import { appointmentsRepository } from '@/database/repositories/appointmentsRepository'

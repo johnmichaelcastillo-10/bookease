@@ -1,6 +1,6 @@
 /**
  * Shared record shapes. Every IndexedDB store, service and form uses these types.
- * See ARCHITECTURE.md §3 for the conventions (IDs, minor units, date/time strings).
+ * See docs/ARCHITECTURE.md §3 for the conventions (IDs, minor units, date/time strings).
  */
 
 export type ID = string

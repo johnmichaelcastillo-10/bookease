@@ -1,6 +1,6 @@
 import type { AppointmentStatus } from '@/types/models'
 
-/** Allowed transitions. Completed, cancelled and no-show are terminal. See ARCHITECTURE.md §6. */
+/** Allowed transitions. Completed, cancelled and no-show are terminal. See docs/ARCHITECTURE.md §6. */
 export const STATUS_TRANSITIONS: Readonly<Record<AppointmentStatus, readonly AppointmentStatus[]>> = {
   pending: ['confirmed', 'cancelled'],
   confirmed: ['completed', 'cancelled', 'no-show'],
