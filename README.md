@@ -1,5 +1,7 @@
 # BookEase
 
+[![CI](https://github.com/johnmichaelcastillo-10/bookease/actions/workflows/ci.yml/badge.svg)](https://github.com/johnmichaelcastillo-10/bookease/actions/workflows/ci.yml)
+
 Appointment and booking management for service businesses (salons, consultancies, repair
 shops, studios), built as a single-page React app that runs **entirely in the browser**. An
 admin workspace runs the schedule; a customer portal takes bookings. Everything is stored
@@ -126,6 +128,10 @@ browser.
 - **End to end** (`tests/e2e`): a full portal booking found again in lookup and in the admin,
   direct loads and refreshes of nested routes, back/forward, 404s, no requests to other origins,
   and no sideways scrolling on a phone.
+
+**Continuous integration:** GitHub Actions (`.github/workflows/ci.yml`) runs `npm run check` on
+every push to `main` and every pull request, then the Playwright suite against the production
+build in Chromium. Traces are uploaded when an end-to-end test fails.
 
 ## Deployment
 

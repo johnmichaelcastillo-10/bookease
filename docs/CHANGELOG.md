@@ -2,6 +2,12 @@
 
 All notable changes to BookEase. Dates are in YYYY-MM-DD.
 
+## [Unreleased]
+
+### Added
+- GitHub Actions CI: typecheck, lint, Vitest and build on every push and pull request, then the
+  Playwright end-to-end suite in Chromium.
+
 ## [1.0.0] - 2026-11-01
 
 First release.
